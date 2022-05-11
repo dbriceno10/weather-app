@@ -27,13 +27,16 @@ function App() {
             img: recurso.weather[0].icon,
             id: recurso.id,
             wind: recurso.wind.speed,
-            temp: recurso.main.temp,
+            temp: Math.round(recurso.main.temp),
             name: recurso.name,
             weather: recurso.weather[0].main,
             weatherDesc: recurso.weather[0].description,
             clouds: recurso.clouds.all,
             latitud: recurso.coord.lat,
             longitud: recurso.coord.lon,
+            country: recurso.sys.country,
+            pressure: recurso.main.pressure,
+            humidity: recurso.main.humidity,
           };
           const searchId: City | undefined = cities.find(
             (city: City) => city.id === recurso.id
@@ -62,7 +65,7 @@ function App() {
   return (
     <div className="container">
       <Navbar onSearch={onSearch}>
-        {loading? (
+        {loading ? (
           <div
             style={{
               display: "flex",
@@ -73,7 +76,7 @@ function App() {
             }}
           >
             <Loader />
-            <h3 style={{marginTop: '10px'}}>Loading...</h3>
+            <h3 style={{ marginTop: "10px" }}>Loading...</h3>
           </div>
         ) : (
           <Cards cities={cities} onClose={onClose} />

@@ -12,11 +12,11 @@ interface CityCardsProps extends City {
 const CardItem: React.FC<CityCardsProps> = ({
   id,
   name,
-  min,
-  max,
   img,
   weather,
   weatherDesc,
+  country,
+  temp,
   onClose,
 }) => {
   return (
@@ -37,8 +37,11 @@ const CardItem: React.FC<CityCardsProps> = ({
             color: "#000",
           }}
         >
-          <Typography variant="h3" sx={{ fontWeight: '700' }} noWrap>
+          <Typography variant="h3" sx={{ fontWeight: "700" }} noWrap>
             {name}
+          </Typography>
+          <Typography variant="h6" noWrap>
+            {country}
           </Typography>
           <img
             alt={weather}
@@ -49,14 +52,8 @@ const CardItem: React.FC<CityCardsProps> = ({
             {capitalizeText(weatherDesc as string)}
           </Typography>
           <Box sx={{ pt: 3 }}>
-            <div
-              style={{ display: "flex", flexDirection: "row" }}
-            >
-              <Typography variant="h5">Min: {min}</Typography>
-              <Typography variant="h6" sx={{ marginRight: "20px" }}>
-                °C
-              </Typography>
-              <Typography variant="h5">Max: {max}</Typography>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <Typography variant="h4">{temp}</Typography>
               <Typography variant="h6">°C</Typography>
             </div>
           </Box>

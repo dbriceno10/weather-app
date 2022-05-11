@@ -1,13 +1,20 @@
 .container{
-  padding: 20px 10px 20px 10px;
+  padding: 0 10px 0 10px;
   background-color: #5ed8ff;
   margin-bottom: 40px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 }
 
 .title_styles {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.logo_styles {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 10px;
 }

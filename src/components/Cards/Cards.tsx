@@ -14,8 +14,6 @@ const Cards: React.FC<CityCardsProps> = ({ cities, onClose }) => {
       <div className={style.cardsContainer}>
         {cities.map((c: City) => (
           <Card
-            max={c.max}
-            min={c.min}
             name={c.name}
             img={c.img}
             onClose={() => onClose(c.id)}
@@ -23,6 +21,8 @@ const Cards: React.FC<CityCardsProps> = ({ cities, onClose }) => {
             key={c.id}
             weather={c.weather}
             weatherDesc={c.weatherDesc}
+            country={c.country}
+            temp={c.temp}
           />
         ))}
       </div>
@@ -31,7 +31,7 @@ const Cards: React.FC<CityCardsProps> = ({ cities, onClose }) => {
     return (
       <Container className={style.cardsContainer}>
         <Typography variant="h2" sx={{ textAlign: "center" }}>
-        No Searches
+          No Searches
         </Typography>
       </Container>
     );
