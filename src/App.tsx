@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import "./App.css";
+import { Container, Typography } from "@mui/material";
 import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
 import { City } from "./utils/Interfaces";
+import "./App.css";
 
 function App() {
   const [cities, setCities] = useState<City[]>([]);
@@ -13,7 +14,6 @@ function App() {
     )
       .then((r) => r.json())
       .then((recurso) => {
-        console.log(recurso);
         if (recurso.main !== undefined) {
           const ciudad: City = {
             min: Math.round(recurso.main.temp_min),
@@ -24,10 +24,13 @@ function App() {
             temp: recurso.main.temp,
             name: recurso.name,
             weather: recurso.weather[0].main,
+            weatherDesc: recurso.weather[0].description,
             clouds: recurso.clouds.all,
             latitud: recurso.coord.lat,
             longitud: recurso.coord.lon,
           };
+          console.log('recurso: ', recurso);
+          console.log('ciudad: ', ciudad);
           const searchId: City | undefined = cities.find(
             (city: City) => city.id === recurso.id
           );
@@ -46,17 +49,13 @@ function App() {
     );
   };
   return (
-    <React.Fragment>
+    <div className="container">
       <Navbar onSearch={onSearch}>
-        <div className="App">
-          <hr />
-          <div>
-            <Cards cities={cities} onClose={onClose} />
-          </div>
-          <hr />
+        <div /* className="App" */>
+          <Cards cities={cities} onClose={onClose} />
         </div>
       </Navbar>
-    </React.Fragment>
+    </div>
   );
 }
 

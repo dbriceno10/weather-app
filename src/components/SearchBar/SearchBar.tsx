@@ -1,26 +1,36 @@
 import React, { useState } from "react";
+import { Input, Button, InputAdornment } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import style from "./SearchBar.module.css";
 
-const SearchBar = ({ onSearch }: any) => {
-  const [city, setCity] = useState<any>("");
-  const handleInputChange = (e: any) => {
+const SearchBar = ({ onSearch }: { onSearch: (ciudad: string) => void }) => {
+  const [city, setCity] = useState<string>("");
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
     setCity(e.target.value);
   };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    onSearch(city);
+  };
   return (
     <React.Fragment>
-      <form
-        className="search-container"
-        onSubmit={(e) => {
-          e.preventDefault();
-          onSearch(city);
-        }}
-      >
-        <input
+      <form onSubmit={handleSubmit}>
+        <Input
           type="text"
           placeholder="Ciudad..."
-          onChange={(e) => handleInputChange(e)}
+          onChange={handleInputChange}
+          className={style.search_styles}
+          startAdornment={
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          }
+          disableUnderline={true}
         />
-        <input type="submit" value="Agregar" />
+        <Button type="submit" variant="contained" color="primary">
+          Buscar
+        </Button>
       </form>
     </React.Fragment>
   );

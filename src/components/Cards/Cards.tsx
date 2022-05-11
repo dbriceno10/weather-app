@@ -1,4 +1,4 @@
-// import {MouseEventHandler} from "react";
+import { Container, Typography } from "@mui/material";
 import { City } from "../../utils/Interfaces";
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
@@ -21,15 +21,19 @@ const Cards: React.FC<CityCardsProps> = ({ cities, onClose }) => {
             onClose={() => onClose(c.id)}
             id={c.id}
             key={c.id}
+            weather={c.weather}
+            weatherDesc={c.weatherDesc}
           />
         ))}
       </div>
     );
   } else {
     return (
-      <div className={style.cardsContainer}>
-        <h2>Sin ciudades</h2>
-      </div>
+      <Container className={style.cardsContainer}>
+        <Typography variant="h2" sx={{ textAlign: "center" }}>
+          Sin Ciudades
+        </Typography>
+      </Container>
     );
   }
 };

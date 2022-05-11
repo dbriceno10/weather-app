@@ -10,4 +10,5 @@ export interface City {
   longitud?: number;
   clouds?: number;
   id: number | string;
-};
+  weatherDesc?: string;
+}

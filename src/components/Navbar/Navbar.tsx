@@ -1,16 +1,21 @@
+import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
+import style from "./Navbar.module.css";
+
 const Navbar = ({
   onSearch,
   children,
 }: {
-  onSearch: Function;
+  onSearch: (ciudad: string) => void;
   children: JSX.Element;
 }) => {
   return (
-    <nav>
+    <React.Fragment>
+      <nav className={style.container}>
       <SearchBar onSearch={onSearch} />
-      {children}
     </nav>
+    {children}
+    </React.Fragment>
   );
 };
 

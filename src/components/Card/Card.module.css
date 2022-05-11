@@ -24,6 +24,13 @@
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.4);
 }
 
+.background {
+  background-image: url("../../assets/img/clouds2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .cardContainer h4 {
   margin-top: 30px;
   font-size: 35px;
@@ -31,7 +38,7 @@
   color: #fff;
 }
 
-.cardContainer button {
+.close_button {
   border: none;
   cursor: pointer;
   position: absolute;
