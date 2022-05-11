@@ -42,14 +42,14 @@ function App() {
             setCities((oldCities: City[]) => [...oldCities, ciudad]);
           }
         } else {
-          swal("Error", "No se encontro la ciudad", "error").then(() =>
+          swal("Error", "City not found", "error").then(() =>
             setLoading(false)
           );
         }
       })
       .catch((error) => {
         console.error(error.message);
-        swal("Error", "Ha ocurrido un error inesperado", "error").then(() =>
+        swal("Error", "An unexpected error has occurred", "error").then(() =>
           setLoading(false)
         );
       });
@@ -73,7 +73,7 @@ function App() {
             }}
           >
             <Loader />
-            <h3 style={{marginTop: '10px'}}>Cargando...</h3>
+            <h3 style={{marginTop: '10px'}}>Loading...</h3>
           </div>
         ) : (
           <Cards cities={cities} onClose={onClose} />

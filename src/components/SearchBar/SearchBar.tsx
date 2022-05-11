@@ -24,7 +24,7 @@ const SearchBar = ({ onSearch }: { onSearch: (ciudad: string) => void }) => {
       <form onSubmit={handleSubmit}>
         <Input
           type="text"
-          placeholder="Buscar..."
+          placeholder="Search..."
           onChange={handleInputChange}
           className={style.search_styles}
           startAdornment={
@@ -40,7 +40,7 @@ const SearchBar = ({ onSearch }: { onSearch: (ciudad: string) => void }) => {
           color="primary"
           className={style.button_styles}
         >
-          Buscar
+          Search
         </Button>
       </form>
     </React.Fragment>
