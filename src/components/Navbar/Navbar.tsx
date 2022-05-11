@@ -8,19 +8,14 @@ const Navbar = ({
   onSearch,
   children,
 }: {
-  onSearch: (ciudad: string) => void;
+  onSearch: (city: string) => void;
   children: JSX.Element;
 }) => {
   return (
     <React.Fragment>
       <nav className={style.container}>
         <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
+          className={style.container_title}
         >
           <div className={style.logo_styles}>
             <WeatherSvg dimension={80} />

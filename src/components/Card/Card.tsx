@@ -1,9 +1,8 @@
 import React from "react";
 import { City } from "../../utils/Interfaces";
-import { capitalizeText } from "../../utils";
-import style from "./Card.module.css";
 import { Card, Box, CardContent, Typography, Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import style from "./Card.module.css";
 
 interface CityCardsProps extends City {
   onClose: () => void;
@@ -18,25 +17,18 @@ const CardItem: React.FC<CityCardsProps> = ({
   country,
   temp,
   onClose,
-}) => {
+}): JSX.Element => {
   return (
     <div key={id}>
       <Card sx={{ px: 1 }} className={style.background}>
-        <CardContent sx={{ display: "flex", justifyContent: "right" }}>
+        <CardContent
+          sx={{ display: "flex", justifyContent: "right", paddingBottom: 0 }}
+        >
           <Button onClick={onClose} variant="contained" color="error">
             <DeleteIcon />
           </Button>
         </CardContent>
-        <CardContent
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            textAlign: "center",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#000",
-          }}
-        >
+        <CardContent className={style.data_container}>
           <Typography variant="h3" sx={{ fontWeight: "700" }} noWrap>
             {name}
           </Typography>
@@ -48,8 +40,8 @@ const CardItem: React.FC<CityCardsProps> = ({
             src={`http://openweathermap.org/img/wn/${img}@2x.png`}
             title={weather}
           />
-          <Typography variant="h6" noWrap>
-            {capitalizeText(weatherDesc as string)}
+          <Typography variant="h6" className={style.capitalize_text} noWrap>
+            {weatherDesc}
           </Typography>
           <Box sx={{ pt: 3 }}>
             <div style={{ display: "flex", flexDirection: "row" }}>

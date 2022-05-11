@@ -8,7 +8,7 @@ interface CityCardsProps {
   cities: City[];
 }
 
-const Cards: React.FC<CityCardsProps> = ({ cities, onClose }) => {
+const Cards: React.FC<CityCardsProps> = ({ cities, onClose }): JSX.Element => {
   if (cities.length > 0) {
     return (
       <div className={style.cardsContainer}>

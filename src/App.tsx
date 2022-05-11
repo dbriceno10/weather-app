@@ -6,43 +6,43 @@ import { City } from "./utils/Interfaces";
 import Loader from "./components/Loader/Loader";
 import "./App.css";
 
-function App() {
+const App = (): JSX.Element => {
   const [cities, setCities] = useState<City[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const apiKey = process.env.REACT_APP_API_KEY;
-  function onSearch(ciudad: string) {
+  function onSearch(city: string) {
     setLoading(true);
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     )
       .then((r) => {
         return r.json();
       })
-      .then((recurso) => {
-        if (recurso.main !== undefined) {
+      .then((resource) => {
+        if (resource.main !== undefined) {
           setLoading(false);
-          const ciudad: City = {
-            min: Math.round(recurso.main.temp_min),
-            max: Math.round(recurso.main.temp_max),
-            img: recurso.weather[0].icon,
-            id: recurso.id,
-            wind: recurso.wind.speed,
-            temp: Math.round(recurso.main.temp),
-            name: recurso.name,
-            weather: recurso.weather[0].main,
-            weatherDesc: recurso.weather[0].description,
-            clouds: recurso.clouds.all,
-            latitud: recurso.coord.lat,
-            longitud: recurso.coord.lon,
-            country: recurso.sys.country,
-            pressure: recurso.main.pressure,
-            humidity: recurso.main.humidity,
+          const city: City = {
+            min: Math.round(resource.main.temp_min),
+            max: Math.round(resource.main.temp_max),
+            img: resource.weather[0].icon,
+            id: resource.id,
+            wind: resource.wind.speed,
+            temp: Math.round(resource.main.temp),
+            name: resource.name,
+            weather: resource.weather[0].main,
+            weatherDesc: resource.weather[0].description,
+            clouds: resource.clouds.all,
+            latitud: resource.coord.lat,
+            longitud: resource.coord.lon,
+            country: resource.sys.country,
+            pressure: resource.main.pressure,
+            humidity: resource.main.humidity,
           };
           const searchId: City | undefined = cities.find(
-            (city: City) => city.id === recurso.id
+            (city: City) => city.id === resource.id
           );
           if (!searchId) {
-            setCities((oldCities: City[]) => [...oldCities, ciudad]);
+            setCities((oldCities: City[]) => [...oldCities, city]);
           }
         } else {
           swal("Error", "City not found", "error").then(() =>
@@ -84,6 +84,6 @@ function App() {
       </Navbar>
     </div>
   );
-}
+};
 
 export default App;

@@ -3,7 +3,7 @@ import { Input, Button, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import style from "./SearchBar.module.css";
 
-const SearchBar = ({ onSearch }: { onSearch: (ciudad: string) => void }) => {
+const SearchBar = ({ onSearch }: { onSearch: (city: string) => void }) => {
   const [city, setCity] = useState<string>("");
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();

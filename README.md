@@ -29,13 +29,11 @@ Una vez realizado todos los cambios deseados con este comando crearas un bundle 
 
 ## Despliegue 📦
 
-Podrás visitar mi portafolio en el siguiente [enlace](https://weather-app-fawn-theta.vercel.app/)
+Podrás visitar la aplicación en el siguiente [enlace](https://weather-app-fawn-theta.vercel.app/)
 
 ## Construido con 🛠️
 
 HTML, CSS, JavaScript, TypeScript, React, Material-UI.
-
-El formulario de contacto se conecta a un api externa para guardar los datos en una base de datos, desarrollada con Node, Express y MongoDB.
 
 <img src="./public/miniatura.png"/>
 
