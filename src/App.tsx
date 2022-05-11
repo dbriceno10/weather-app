@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
 import { City } from "./utils/Interfaces";
+import swal from "sweetalert";
 import "./App.css";
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
             setCities((oldCities: City[]) => [...oldCities, ciudad]);
           }
         } else {
-          alert("Ciudad no encontrada");
+          swal("Error", "No se encontro la ciudad", "error");
         }
       })
       .catch((error) => console.error(error.message));

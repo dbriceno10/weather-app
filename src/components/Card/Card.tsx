@@ -49,19 +49,16 @@ const CardItem: React.FC<CityCardsProps> = ({
             {capitalizeText(weatherDesc as string)}
           </Typography>
           <Box sx={{ pt: 3 }}>
-            <Typography
-              variant="h5"
-              gutterBottom
-              noWrap
-              sx={{ display: "flex", flexDirection: "row" }}
+            <div
+              style={{ display: "flex", flexDirection: "row" }}
             >
-              Min: {min}
+              <Typography variant="h5">Min: {min}</Typography>
               <Typography variant="h6" sx={{ marginRight: "20px" }}>
                 °C
               </Typography>
-              Max: {max}
+              <Typography variant="h5">Max: {max}</Typography>
               <Typography variant="h6">°C</Typography>
-            </Typography>
+            </div>
           </Box>
         </CardContent>
       </Card>
