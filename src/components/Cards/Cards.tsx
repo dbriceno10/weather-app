@@ -31,7 +31,7 @@ const Cards: React.FC<CityCardsProps> = ({ cities, onClose }) => {
     return (
       <Container className={style.cardsContainer}>
         <Typography variant="h2" sx={{ textAlign: "center" }}>
-          Sin Ciudades
+          Sin Búsquerdas
         </Typography>
       </Container>
     );

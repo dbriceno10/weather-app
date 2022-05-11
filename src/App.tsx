@@ -1,20 +1,26 @@
 import { useState } from "react";
+import swal from "sweetalert";
 import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
 import { City } from "./utils/Interfaces";
-import swal from "sweetalert";
+import Loader from "./components/Loader/Loader";
 import "./App.css";
 
 function App() {
   const [cities, setCities] = useState<City[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const apiKey = process.env.REACT_APP_API_KEY;
   function onSearch(ciudad: string) {
+    setLoading(true);
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
     )
-      .then((r) => r.json())
+      .then((r) => {
+        return r.json();
+      })
       .then((recurso) => {
         if (recurso.main !== undefined) {
+          setLoading(false);
           const ciudad: City = {
             min: Math.round(recurso.main.temp_min),
             max: Math.round(recurso.main.temp_max),
@@ -36,10 +42,17 @@ function App() {
             setCities((oldCities: City[]) => [...oldCities, ciudad]);
           }
         } else {
-          swal("Error", "No se encontro la ciudad", "error");
+          swal("Error", "No se encontro la ciudad", "error").then(() =>
+            setLoading(false)
+          );
         }
       })
-      .catch((error) => console.error(error.message));
+      .catch((error) => {
+        console.error(error.message);
+        swal("Error", "Ha ocurrido un error inesperado", "error").then(() =>
+          setLoading(false)
+        );
+      });
   }
   const onClose = (id?: string | number): void => {
     setCities((oldCities: City[]) =>
@@ -49,7 +62,22 @@ function App() {
   return (
     <div className="container">
       <Navbar onSearch={onSearch}>
-        <Cards cities={cities} onClose={onClose} />
+        {loading? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              height: "300px",
+            }}
+          >
+            <Loader />
+            <h3 style={{marginTop: '10px'}}>Cargando...</h3>
+          </div>
+        ) : (
+          <Cards cities={cities} onClose={onClose} />
+        )}
       </Navbar>
     </div>
   );

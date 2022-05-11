@@ -24,7 +24,7 @@ const SearchBar = ({ onSearch }: { onSearch: (ciudad: string) => void }) => {
       <form onSubmit={handleSubmit}>
         <Input
           type="text"
-          placeholder="Ciudad..."
+          placeholder="Buscar..."
           onChange={handleInputChange}
           className={style.search_styles}
           startAdornment={
