@@ -12,6 +12,12 @@ const SearchBar = ({ onSearch }: { onSearch: (ciudad: string) => void }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     onSearch(city);
+    resetInput(e);
+  };
+  const resetInput = (e: any): void => {
+    e.preventDefault();
+    setCity("");
+    e.target.reset();
   };
   return (
     <React.Fragment>

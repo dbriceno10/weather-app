@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Container, Typography } from "@mui/material";
 import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
 import { City } from "./utils/Interfaces";
@@ -29,8 +28,6 @@ function App() {
             latitud: recurso.coord.lat,
             longitud: recurso.coord.lon,
           };
-          console.log('recurso: ', recurso);
-          console.log('ciudad: ', ciudad);
           const searchId: City | undefined = cities.find(
             (city: City) => city.id === recurso.id
           );
@@ -51,9 +48,7 @@ function App() {
   return (
     <div className="container">
       <Navbar onSearch={onSearch}>
-        <div /* className="App" */>
-          <Cards cities={cities} onClose={onClose} />
-        </div>
+        <Cards cities={cities} onClose={onClose} />
       </Navbar>
     </div>
   );
