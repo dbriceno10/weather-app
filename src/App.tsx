@@ -4,10 +4,10 @@ import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
 import { City } from "./utils/Interfaces";
 
-function App() {
-  const [cities, setCities] = useState<any>([]);
-  const apiKey = process.env.REACT_APP_API_KEY;
 
+function App() {
+  const [cities, setCities] = useState<City[]>([]);
+  const apiKey = process.env.REACT_APP_API_KEY;
   function onSearch(ciudad: string) {
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
@@ -29,7 +29,7 @@ function App() {
             latitud: recurso.coord.lat,
             longitud: recurso.coord.lon,
           };
-          const searchId: City = cities.find(
+          const searchId: City | undefined = cities.find(
             (city: City) => city.id === recurso.id
           );
           if (!searchId) {
@@ -41,9 +41,11 @@ function App() {
       })
       .catch((error) => console.error(error.message));
   }
-  function onClose(id: number) {
-    setCities((oldCities: City[]) => oldCities.filter((c: City) => c.id !== id));
-  }
+  const onClose = (id?: string | number): void=> {
+    setCities((oldCities: City[]) =>
+      oldCities.filter((c: City) => c.id !== id)
+    );
+  };
   return (
     <React.Fragment>
       <Navbar onSearch={onSearch}>

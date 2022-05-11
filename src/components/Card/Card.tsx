@@ -1,8 +1,19 @@
-// import { City } from "../../utils/Interfaces";
-// import { MouseEventHandler } from "react";
+import React from "react";
+import { City } from "../../utils/Interfaces";
 import style from "./Card.module.css";
 
-const Card = ({ id, name, min, max, img, onClose }: any) => {
+interface CityCardsProps extends City {
+  onClose: () => void;
+}
+
+const Card: React.FC<CityCardsProps> = ({
+  id,
+  name,
+  min,
+  max,
+  img,
+  onClose,
+}) => {
   // console.log(city.name);
   // console.log(typeof onClose);
   return (
