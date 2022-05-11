@@ -34,7 +34,12 @@ const SearchBar = ({ onSearch }: { onSearch: (ciudad: string) => void }) => {
           }
           disableUnderline={true}
         />
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className={style.button_styles}
+        >
           Buscar
         </Button>
       </form>

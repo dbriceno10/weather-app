@@ -1,5 +1,13 @@
 .container{
-  padding: 30px;
+  padding: 20px 10px 20px 10px;
   background-color: #5ed8ff;
   margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title_styles {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
