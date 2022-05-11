@@ -14,8 +14,6 @@ const Card: React.FC<CityCardsProps> = ({
   img,
   onClose,
 }) => {
-  // console.log(city.name);
-  // console.log(typeof onClose);
   return (
     <div key={id} className={style.cardContainer}>
       <button onClick={onClose}>X</button>

@@ -4,7 +4,6 @@ import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
 import { City } from "./utils/Interfaces";
 
-
 function App() {
   const [cities, setCities] = useState<City[]>([]);
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -41,7 +40,7 @@ function App() {
       })
       .catch((error) => console.error(error.message));
   }
-  const onClose = (id?: string | number): void=> {
+  const onClose = (id?: string | number): void => {
     setCities((oldCities: City[]) =>
       oldCities.filter((c: City) => c.id !== id)
     );

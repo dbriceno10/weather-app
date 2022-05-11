@@ -1,11 +1,17 @@
-import SearchBar from "../SearchBar/SearchBar"
-const Navbar = ({onSearch, children}: {onSearch: Function, children: JSX.Element}) => {
+import SearchBar from "../SearchBar/SearchBar";
+const Navbar = ({
+  onSearch,
+  children,
+}: {
+  onSearch: Function;
+  children: JSX.Element;
+}) => {
   return (
     <nav>
-      <SearchBar onSearch={onSearch}/>
+      <SearchBar onSearch={onSearch} />
       {children}
     </nav>
   );
-}
+};
 
 export default Navbar;

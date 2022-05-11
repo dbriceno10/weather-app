@@ -3,12 +3,12 @@ import { City } from "../../utils/Interfaces";
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
-interface CityCardsProps{
-  onClose: (id: number | string | undefined) => void
+interface CityCardsProps {
+  onClose: (id: number | string | undefined) => void;
   cities: City[];
 }
 
-const Cards: React.FC<CityCardsProps>= ({ cities, onClose }) => {
+const Cards: React.FC<CityCardsProps> = ({ cities, onClose }) => {
   if (cities.length > 0) {
     return (
       <div className={style.cardsContainer}>
