@@ -1,6 +1,13 @@
 import React from "react";
 import { City } from "../../utils/Interfaces";
-import { Card, Box, CardContent, Typography, Button } from "@mui/material";
+import {
+  Card,
+  Box,
+  CardContent,
+  Typography,
+  Button,
+  Avatar,
+} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import style from "./Card.module.css";
 
@@ -18,12 +25,22 @@ const CardItem: React.FC<CityCardsProps> = ({
   temp,
   onClose,
 }): JSX.Element => {
+  if(country === undefined) country = "Country Not Found"
   return (
     <div key={id}>
       <Card sx={{ px: 1 }} className={style.background}>
         <CardContent
-          sx={{ display: "flex", justifyContent: "right", paddingBottom: 0 }}
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingBottom: 0,
+          }}
         >
+          <Avatar
+            src={`http://www.geonames.org/flags/x/${country.toLowerCase()}.gif`}
+            alt={country}
+            title={country}
+          />
           <Button onClick={onClose} variant="contained" color="error">
             <DeleteIcon />
           </Button>
