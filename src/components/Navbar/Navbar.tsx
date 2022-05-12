@@ -14,9 +14,7 @@ const Navbar = ({
   return (
     <React.Fragment>
       <nav className={style.container}>
-        <div
-          className={style.container_title}
-        >
+        <div className={style.container_title}>
           <div className={style.logo_styles}>
             <WeatherSvg dimension={80} />
           </div>

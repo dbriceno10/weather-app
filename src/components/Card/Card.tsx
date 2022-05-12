@@ -25,7 +25,7 @@ const CardItem: React.FC<CityCardsProps> = ({
   temp,
   onClose,
 }): JSX.Element => {
-  if(country === undefined) country = "Country Not Found"
+  if (country === undefined) country = "Country Not Found";
   return (
     <div key={id}>
       <Card sx={{ px: 1 }} className={style.background}>
@@ -46,7 +46,7 @@ const CardItem: React.FC<CityCardsProps> = ({
           </Button>
         </CardContent>
         <CardContent className={style.data_container}>
-          <Typography variant="h3" sx={{ fontWeight: "700" }} noWrap>
+          <Typography variant="h3" sx={{ fontWeight: "700" }} noWrap={false}>
             {name}
           </Typography>
           <Typography variant="h6" noWrap>

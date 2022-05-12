@@ -30,8 +30,11 @@ const Cards: React.FC<CityCardsProps> = ({ cities, onClose }): JSX.Element => {
   } else {
     return (
       <Container className={style.cardsContainer}>
-        <Typography variant="h2" sx={{ textAlign: "center" }}>
-          No Searches
+        <Typography
+          variant="h2"
+          sx={{ textAlign: "center", marginTop: "150px" }}
+        >
+          No Searches Yet...
         </Typography>
       </Container>
     );

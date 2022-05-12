@@ -14,9 +14,10 @@
 margin: 5px;
 }
 
-/* .search_container {
+.container {
   display: flex;
   flex-direction: row;
-  min-width: 280px;
+  /* min-width: 280px; */
   justify-content: space-between;
-} */
+  align-items: center;
+}

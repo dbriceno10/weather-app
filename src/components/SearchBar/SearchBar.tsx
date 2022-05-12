@@ -3,7 +3,7 @@ import { Input, Button, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import style from "./SearchBar.module.css";
 
-const SearchBar = ({ onSearch }: { onSearch: (city: string) => void }) => {
+const SearchBar = ({ onSearch }: { onSearch: (city: string) => void }): JSX.Element => {
   const [city, setCity] = useState<string>("");
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
@@ -21,7 +21,7 @@ const SearchBar = ({ onSearch }: { onSearch: (city: string) => void }) => {
   };
   return (
     <React.Fragment>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={style.container}>
         <Input
           type="text"
           placeholder="Search..."
@@ -29,7 +29,7 @@ const SearchBar = ({ onSearch }: { onSearch: (city: string) => void }) => {
           className={style.search_styles}
           startAdornment={
             <InputAdornment position="start">
-              <SearchIcon />
+              <SearchIcon color="primary" />
             </InputAdornment>
           }
           disableUnderline={true}
