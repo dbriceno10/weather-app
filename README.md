@@ -29,7 +29,7 @@ Una vez realizado todos los cambios deseados con este comando crearas un bundle 
 
 ## Despliegue 📦
 
-Podrás visitar la aplicación en el siguiente [enlace](https://weather-app-fawn-theta.vercel.app/)
+Podrás visitar la aplicación en el siguiente [enlace](https://weather-app-dbriceno10.vercel.app/)
 
 ## Construido con 🛠️
 
