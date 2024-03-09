@@ -1,6 +1,6 @@
 # Weather App Creada con React
 
-Hola, bienvenidos al repositorio Weather App.
+Hola, bienvenidos al repositorio Weather App, la cual es una app para conocer el clima, el cuál se ha mejorado para guardar hasta 20 consultas, además de actualizar dichas consultas cada vez que se entra a la app.
 
 ## Comenzando 🚀
 
@@ -8,20 +8,20 @@ Para hacerlo funcionar, te invito a clonar o forkear el repo. Una vez descargado
 
 ## Variables De Entorno ⚙️
 
-Deberás ingresar a [Weather API](https://openweathermap.org/api), registrarte de forma gratuita y crear tu propio API key para poder realizar constulas, posteriormente vas a crear un archivo .env en la raiz del proyecto, dentro del mismo vas a crear una variable de entorno llamada REACT_APP_API_KEY y le vas a asignar el valor del Api key que acabas de obtener de la siguiente manera: REACT_APP_API_KEY="Your_Api_Key".
+Deberás ingresar a [Weather API](https://openweathermap.org/api), registrarte de forma gratuita y crear tu propio API key para poder realizar constulas, posteriormente vas a crear un archivo .env en la raiz del proyecto, dentro del mismo vas a crear una variable de entorno llamada REACT_APP_API_KEY y le vas a asignar el valor del Api key que acabas de obtener de la siguiente manera: REACT_APP_API_KEY="Your_Api_Key", dentro del archivo .env.example encontraras las demás variables de entorno requeridas para levantar el proyecto, las cuales son las url de las apis necesarias.
 
 ## Scripts Disponibles 📌
 
 En el directorio del proyecto puedes ejecutar:
 
 ### `npm i ó npm install`
+
 Para instalar todas las dependencias que requiere el proyecto para funcionar.
 
 ### `npm start`
 
 Corre la aplicación en modo desarrollo un tu servidor local en tu computadora.
 Abre [http://localhost:3000](http://localhost:3000) para verlo en el navegador.
-
 
 ### `npm run build`
 
@@ -38,4 +38,5 @@ HTML, CSS, JavaScript, TypeScript, React, Material-UI.
 <img src="./public/miniatura.png"/>
 
 ---
+
 ⌨️ con ❤️ por [dbriceno10](https://github.com/dbriceno10) 😊
