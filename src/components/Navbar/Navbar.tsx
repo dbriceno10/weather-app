@@ -4,13 +4,13 @@ import SearchBar from "../SearchBar/SearchBar";
 import WeatherSvg from "../svg/WeatherSvg";
 import style from "./Navbar.module.css";
 
-const Navbar = ({
-  onSearch,
-  children,
-}: {
+interface NavbarProps {
   onSearch: (city: string) => void;
+  loading: boolean;
   children: JSX.Element;
-}) => {
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onSearch, loading, children }) => {
   return (
     <React.Fragment>
       <nav className={style.container}>
@@ -22,7 +22,7 @@ const Navbar = ({
             Weather App
           </Typography>
         </div>
-        <SearchBar onSearch={onSearch} />
+        <SearchBar onSearch={onSearch} loading={loading} />
       </nav>
       {children}
     </React.Fragment>

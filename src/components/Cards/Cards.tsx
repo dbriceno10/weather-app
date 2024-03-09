@@ -12,7 +12,7 @@ const Cards: React.FC<CityCardsProps> = ({ cities, onClose }): JSX.Element => {
   if (cities.length > 0) {
     return (
       <div className={style.cardsContainer}>
-        {cities.map((c: City) => (
+        {cities?.map((c) => (
           <Card
             name={c.name}
             img={c.img}
@@ -34,7 +34,7 @@ const Cards: React.FC<CityCardsProps> = ({ cities, onClose }): JSX.Element => {
           variant="h2"
           sx={{ textAlign: "center", marginTop: "150px" }}
         >
-          No Searches Yet...
+          Sin resultados...
         </Typography>
       </Container>
     );

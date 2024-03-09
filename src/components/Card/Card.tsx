@@ -25,7 +25,9 @@ const CardItem: React.FC<CityCardsProps> = ({
   temp,
   onClose,
 }): JSX.Element => {
-  if (country === undefined) country = "Country Not Found";
+  const flagsUrl = process.env.REACT_APP_FLAGS_API;
+  const cloudsUrl = process.env.REACT_APP_CLOUDS_API;
+  if (country === undefined) country = "Ciudad no encontrada";
   return (
     <div key={id}>
       <Card sx={{ px: 1 }} className={style.background}>
@@ -37,7 +39,7 @@ const CardItem: React.FC<CityCardsProps> = ({
           }}
         >
           <Avatar
-            src={`http://www.geonames.org/flags/x/${country.toLowerCase()}.gif`}
+            src={`${flagsUrl}${country.toLowerCase()}.gif`}
             alt={country}
             title={country}
           />
@@ -54,7 +56,7 @@ const CardItem: React.FC<CityCardsProps> = ({
           </Typography>
           <img
             alt={weather}
-            src={`http://openweathermap.org/img/wn/${img}@2x.png`}
+            src={`${cloudsUrl}${img}@2x.png`}
             title={weather}
           />
           <Typography variant="h6" className={style.capitalize_text} noWrap>
