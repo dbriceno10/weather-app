@@ -29,13 +29,12 @@ const SearchBar: React.FC<SearchBarProps> = ({
     setCity("");
     e.target.reset();
   };
-  console.log(loading);
   return (
     <React.Fragment>
       <form onSubmit={handleSubmit} className={style.container}>
         <Input
           type="text"
-          placeholder="Search..."
+          placeholder="Buscar..."
           onChange={handleInputChange}
           className={style.search_styles}
           startAdornment={

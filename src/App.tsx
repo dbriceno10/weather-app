@@ -58,8 +58,18 @@ const App = (): JSX.Element => {
           setCities(citiesCopy);
           localStorage.setItem("cities", JSON.stringify(citiesCopy));
         } else {
-          setCities((oldCities: City[]) => [...oldCities, city]);
-          localStorage.setItem("cities", JSON.stringify([...cities, city]));
+          if (cities.length >= 20) {
+            const citiesCopy = [...cities];
+            citiesCopy.pop();
+            setCities([city, ...citiesCopy]);
+            localStorage.setItem(
+              "cities",
+              JSON.stringify([city, ...citiesCopy])
+            );
+          } else {
+            setCities((oldCities) => [city, ...oldCities]);
+            localStorage.setItem("cities", JSON.stringify([city, ...cities]));
+          }
         }
       } catch (error) {
         swal({
@@ -73,9 +83,18 @@ const App = (): JSX.Element => {
   };
 
   const onClose = (id?: string | number): void => {
-    const oldCities = cities?.filter((c: City) => c.id !== id);
-    setCities(oldCities);
-    localStorage.setItem("cities", JSON.stringify(oldCities));
+    swal({
+      title: "Información",
+      text: "¿Desea eliminar la tarjeta?",
+      icon: "info",
+      buttons: ["Cancelar", "Aceptar"],
+    }).then((result) => {
+      if (result) {
+        const oldCities = cities?.filter((c: City) => c.id !== id);
+        setCities(oldCities);
+        localStorage.setItem("cities", JSON.stringify(oldCities));
+      }
+    });
   };
 
   const fetchDates = async (names: string[]) => {
