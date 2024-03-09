@@ -5,7 +5,6 @@ import {
   Box,
   CardContent,
   Typography,
-  Button,
   Avatar,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -30,27 +29,21 @@ const CardItem: React.FC<CityCardsProps> = ({
   if (country === undefined) country = "Ciudad no encontrada";
   return (
     <div key={id}>
-      <Card sx={{ px: 1 }} className={style.background}>
-        <CardContent
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            paddingBottom: 0,
-          }}
-        >
+      <Card className={style.background}>
+        <CardContent className={style.cardContentHeader}>
           <Avatar
             src={`${flagsUrl}${country.toLowerCase()}.gif`}
             alt={country}
             title={country}
           />
-          <Button onClick={onClose} variant="contained" color="error">
-            <DeleteIcon />
-          </Button>
+          <DeleteIcon
+            onClick={onClose}
+            className={style.deleteIcon}
+            sx={{ fontSize: "40px" }}
+          />
         </CardContent>
         <CardContent className={style.data_container}>
-          <Typography variant="h3" sx={{ fontWeight: "700" }} noWrap={false}>
-            {name}
-          </Typography>
+          <p className={style.name}>{name}</p>
           <Typography variant="h6" noWrap>
             {country}
           </Typography>
@@ -58,14 +51,15 @@ const CardItem: React.FC<CityCardsProps> = ({
             alt={weather}
             src={`${cloudsUrl}${img}@2x.png`}
             title={weather}
+            className={style.weatherIcon}
           />
           <Typography variant="h6" className={style.capitalize_text} noWrap>
             {weatherDesc}
           </Typography>
-          <Box sx={{ pt: 3 }}>
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <Typography variant="h4">{temp}</Typography>
-              <Typography variant="h6">°C</Typography>
+          <Box>
+            <div className={style.temperature}>
+              <p className={style.numText}>{temp}</p>
+              <p className={style.tempText}>°C</p>
             </div>
           </Box>
         </CardContent>

@@ -3,6 +3,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  max-width: 300px;
 }
 
 .data_container {
@@ -16,4 +17,49 @@
 
 .capitalize_text {
   text-transform: capitalize;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 28px;
+  overflow: hidden;
+}
+
+.temperature {
+  display: flex;
+  flex-direction: row;
+}
+
+.numText {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tempText {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.weatherIcon {
+  width: 80px;
+}
+
+.deleteIcon {
+  color: #d32f2f;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.deleteIcon:hover {
+  color: #1976d2;
+}
+
+.cardContentHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.cardContentBody {
+  padding: 0 10px 0 10px;
 }
