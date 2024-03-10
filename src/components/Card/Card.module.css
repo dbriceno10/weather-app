@@ -1,4 +1,21 @@
-.background {
+.backgroundDawn {
+  background-image: url("../../assets/img/clouds2.jpg");
+  background-image: url("../../assets/img/dawn-clouds-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 300px;
+}
+
+.backgroundMorning {
+  background-image: url("../../assets/img/dark-clouds.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 300px;
+}
+
+.backgroundNoon {
   background-image: url("../../assets/img/clouds2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -6,13 +23,46 @@
   max-width: 300px;
 }
 
-.data_container {
+.backgroundSunset {
+  background-image: url("../../assets/img/twiligth-clouds-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 300px;
+}
+
+.backgroundEvening {
+  background-image: url("../../assets/img/nigth-clouds-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 300px;
+}
+
+.backgroundMidnigth {
+  background-image: url("../../assets/img/midnight-clouds.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 300px;
+}
+
+.data_containerDark {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #000;
+}
+
+.data_containerLigth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
 }
 
 .capitalize_text {
@@ -45,13 +95,13 @@
 }
 
 .deleteIcon {
-  color: #d32f2f;
+  color: #ff1943;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .deleteIcon:hover {
-  color: #1976d2;
+  color: #d72041;
+  transition: all ease 300ms;
 }
 
 .cardContentHeader {

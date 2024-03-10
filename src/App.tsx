@@ -7,7 +7,9 @@ import Navbar from "./components/Navbar/Navbar";
 import { City } from "./utils/Interfaces";
 import "./App.css";
 
+let intervalId: any = undefined;
 const App = (): JSX.Element => {
+  const reloadInterval = 3600000; //1 Hora
   const [cities, setCities] = useState<City[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -129,8 +131,14 @@ const App = (): JSX.Element => {
       if (Array.isArray(citiesStorage) && citiesStorage.length > 0) {
         const names = citiesStorage?.map((c) => c.name);
         fetchDates(names);
+        setInterval(() => {
+          fetchDates(names);
+        }, reloadInterval);
       }
     }
+    return () => {
+      clearInterval(intervalId);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

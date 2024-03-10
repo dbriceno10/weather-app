@@ -1,6 +1,6 @@
 # Weather App Creada con React
 
-Hola, bienvenidos al repositorio Weather App, la cual es una app para conocer el clima, el cuál se ha mejorado para guardar hasta 20 consultas, además de actualizar dichas consultas cada vez que se entra a la app.
+Hola, bienvenidos al repositorio Weather App, la cual es una app para conocer el clima, el cuál se ha mejorado para guardar hasta 20 consultas, además de actualizar dichas consultas cada vez que se entra a la app y cada hora. El Fondo de las tarjetas cambiará dependiendo del momento del día.
 
 ## Comenzando 🚀
 
