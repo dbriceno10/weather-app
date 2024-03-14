@@ -28,9 +28,9 @@ const CardItem: React.FC<CityCardsProps> = ({
       return style.backgroundDawn;
     } else if (hours >= 7 && hours < 11) {
       return style.backgroundMorning;
-    } else if (hours >= 11 && hours <= 17) {
+    } else if (hours >= 11 && hours < 17) {
       return style.backgroundNoon;
-    } else if (hours > 17 && hours < 19) {
+    } else if (hours >= 17 && hours < 19) {
       return style.backgroundSunset;
     } else if (hours >= 19 && hours <= 23) {
       return style.backgroundEvening;
