@@ -131,7 +131,7 @@ const App = (): JSX.Element => {
       if (Array.isArray(citiesStorage) && citiesStorage.length > 0) {
         const names = citiesStorage?.map((c) => c.name);
         fetchDates(names);
-        setInterval(() => {
+        intervalId = setInterval(() => {
           fetchDates(names);
         }, reloadInterval);
       }
